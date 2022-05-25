@@ -13,6 +13,10 @@ use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+    return view('frontend.index');
+});
 
-Route::get('/', [AuthController::class, 'index'])->name('auth')->middleware('guest');
+
+Route::get('/auth', [AuthController::class, 'index'])->name('auth')->middleware('guest');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
