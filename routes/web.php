@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// FrontEnd
+use App\Http\Controllers\HomeController;
+
+// BackEnd
 use App\Http\Controllers\Auth\AuthController;
 
 /*
@@ -13,10 +17,10 @@ use App\Http\Controllers\Auth\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function(){
-    return view('frontend.index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('auth')->middleware('guest')->group(function(){
+    Route::get('', [AuthController::class, 'index'])->name('auth');
+    Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 });
-
-
-Route::get('/auth', [AuthController::class, 'index'])->name('auth')->middleware('guest');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
