@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,12 @@ use App\Http\Controllers\Auth\AuthController;
 Route::prefix('auth')->middleware('guest')->group(function(){
     Route::get('/', [AuthController::class, 'index'])->name('auth');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+});
+
+Route::prefix('administrator')->middleware('auth')->group(function(){
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::prefix('users')->middleware('can:read-users')->group(function(){
+        Route::get('', [UserController::class, 'index'])->name('admin.users');
+    });
 });

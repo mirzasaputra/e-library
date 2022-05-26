@@ -38,7 +38,7 @@ class AuthController extends Controller
                         if($user->roles[0]->name == "Member"){
                             $redirect = url('/dashboard');
                         } else {
-                            $redirect = url('/administrator/dashboard');
+                            $redirect = route('admin.dashboard');
                         }
 
                         return response()->json([

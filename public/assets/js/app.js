@@ -1,6 +1,53 @@
 $(function(){
-    handleEvent()
+    if($('v-renderer').length){
+        handleView()
+    } else {
+        handleEvent()
+    }
+
+    window.onpopstate = () => {
+        handleView()
+    }
 })
+
+const handleView =async  () => {
+    sidebarIndicatorActive()
+
+    swal.fire({
+        title: 'Loading',
+        html: 'Sedang mengambil data',
+        allowOutsideClick: false,
+        didOpen: () => {
+            swal.showLoading()
+        }
+    })
+
+    const res = await fetch(window.location.href, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        }
+    })
+
+    swal.close()
+    if(res.status == 200){
+        $('v-renderer').html(await res.text())
+        handleEvent()
+    } else {
+        if(res.status == 401){
+            window.location.reload()
+        } else {
+            var data = await res.json()
+            notify('warning', data.message)
+        }
+    }
+}
+
+const pushState = (url) => {
+    history.pushState([], null, url)
+
+    $(".navigation").find(".active").removeClass("active");
+    handleView()
+}
 
 const handleEvent = () => {
     $('form[data-request="ajax"]').unbind().on('submit', async function(e){
@@ -116,4 +163,45 @@ const notify = (type, message) => {
             onClosed: null,
         }
     );
+};
+
+const sidebarIndicatorActive = () => {
+    var controller = window.location.href.split("/")[4];
+    // console.log(controller)
+    $(".navigation")
+        .find(
+            `a[href="${$('meta[name="base-url"]').attr(
+                "content"
+            )}/administrator/${controller}"]`
+        )
+        .parent()
+        .addClass("active");
+
+    $(".navigation")
+        .find(".sidebar-group-active")
+        .removeClass("sidebar-group-active");
+
+    if (
+        $(".navigation")
+        .find(
+            `a[href="${$('meta[name="base-url"]').attr(
+                    "content"
+                )}/administrator/${controller}"]`
+        )
+        .parent()
+        .parent()
+        .parent()
+        .hasClass("nav-item has-sub")
+    ) {
+        $(".navigation")
+            .find(
+                `a[href="${$('meta[name="base-url"]').attr(
+                    "content"
+                )}/administrator/${controller}"]`
+            )
+            .parent()
+            .parent()
+            .parent()
+            .addClass("sidebar-group-active");
+    }
 };
