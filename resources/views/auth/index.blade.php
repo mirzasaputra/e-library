@@ -26,10 +26,11 @@
                                     </div>
                                     <p class="px-2">Welcome back, please login to your account.</p>
                                     <div class="card-content">
-                                        <div class="card-body pt-1">
-                                            <form action="{{ route('auth.login') }}" method="post" data-request="ajax" data-success-callback="">
+                                        <div class="card-body pt-1 mb-4">
+                                            <form action="{{ route('auth.login') }}" method="post" data-request="ajax" data-redirect="true">
+                                                @csrf
                                                 <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                    <input type="text" class="form-control" id="user-name" placeholder="Username" required>
+                                                    <input type="text" class="form-control" name="username" id="user-name" placeholder="Username">
                                                     <div class="form-control-position">
                                                         <i class="feather icon-user"></i>
                                                     </div>
@@ -37,7 +38,7 @@
                                                 </fieldset>
 
                                                 <fieldset class="form-label-group position-relative has-icon-left">
-                                                    <input type="password" class="form-control" id="user-password" placeholder="Password" required>
+                                                    <input type="password" class="form-control" name="password" id="user-password" placeholder="Password">
                                                     <div class="form-control-position">
                                                         <i class="feather icon-lock"></i>
                                                     </div>

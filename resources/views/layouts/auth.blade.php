@@ -44,6 +44,7 @@
     @yield('content')
 
     <!-- BEGIN: Vendor JS-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
 
@@ -54,6 +55,8 @@
     <script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
     <script src="{{ asset('app-assets/js/core/app.js') }}"></script>
     <script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/notify/js/bootstrap-notify.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
