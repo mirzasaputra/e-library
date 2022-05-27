@@ -1,4 +1,12 @@
 $(function(){
+    window.userPermissions = [];
+    
+    if ($('meta[name="user-permissions"]').length) {
+        window.userPermissions = $('meta[name="user-permissions"]')
+            .attr("content")
+            .split(",");
+    }
+
     if($('v-renderer').length){
         handleView()
     } else {
@@ -50,6 +58,16 @@ const pushState = (url) => {
 }
 
 const handleEvent = () => {
+    $('a[data-toggle="ajax"]').unbind().on('click', function(e){
+        e.preventDefault()
+        pushState($(this).attr('href'))
+    })
+
+    $('button[data-toggle="ajax"]').unbind().on('click', function(e){
+        e.preventDefault()
+        pushState($(this).data('target'))
+    })
+
     $('form[data-request="ajax"]').unbind().on('submit', async function(e){
         e.preventDefault();
         var oldBtn = $(this).find('button[type="submit"]').html()
@@ -205,3 +223,32 @@ const sidebarIndicatorActive = () => {
             .addClass("sidebar-group-active");
     }
 };
+
+const initTable = (el, columns = [], drawCallback = null, defaultOrder = [1, 'asc']) => {
+    if (!$.fn.DataTable.isDataTable(el)) {
+
+    }
+
+    var opt = {
+        processing: true,
+        serverSide: true,
+        ajax: $(el).data('url'),
+        columns: columns,
+        responsive: true,
+        order: defaultOrder,
+        drawCallback,
+    }
+
+    var table = $(el).DataTable(opt)
+
+    table.on('draw.dt', function(){
+        handleEvent()
+    })
+
+    table.on('responsive-display', function(){
+        handleEvent()
+        drawCallback
+    })
+
+    return table
+}

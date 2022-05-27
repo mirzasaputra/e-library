@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 // BackEnd
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,6 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
 
     Route::prefix('users')->middleware('can:read-users')->group(function(){
         Route::get('', [UserController::class, 'index'])->name('admin.users');
+        Route::get('getData', [UserController::class, 'getData'])->name('admin.users.getData');
     });
 });

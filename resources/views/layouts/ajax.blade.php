@@ -18,7 +18,7 @@
 </div>
 
 <script>
-    document.title = "{{ $title .' | E - Bills' }}";
+    document.title = "{{ $title .' | Administrator E - Library Apps' }}";
     
     if(!window.jQuery){
         document.body.innerHTML = "";

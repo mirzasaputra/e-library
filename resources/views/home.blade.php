@@ -35,11 +35,11 @@
                     <div class="card books shadow-sm">
                         <div class="card-body text-dark" style="text-align: justify">
                             <div class="card-image">
-                                <img src="{{ asset('storage/images/books/'. $item['picture']) }}" alt="" width="100%">
+                                <img src="{{ asset('storage/images/books/'. $item->picture) }}" alt="" width="100%">
                             </div>
-                            <h6>{{ substr($item['title'], 0, 26) . (strlen($item['title']) > 26 ? '...' : '') }}</h6>
-                            <p class="text-muted">{{ substr($item['description'], 0, 55) . (strlen($item['description']) > 55 ? '...' : '') }}</p>
-                            <p class="text-end text-muted m-0 p-0" style="font-size: 10px;">{{ number_format($item['countViews']) }} views</p>
+                            <h6>{{ substr($item->name, 0, 26) . (strlen($item->name) > 26 ? '...' : '') }}</h6>
+                            <p class="text-muted">{{ substr($item->description, 0, 55) . (strlen($item->description) > 55 ? '...' : '') }}</p>
+                            <p class="text-end text-muted m-0 p-0" style="font-size: 10px;">{{ number_format($item->count_views) }} views</p>
                         </div>
                     </div>
                 </a>
@@ -61,11 +61,11 @@
                         <span class="latest-books">NEW</span>
                         <div class="card-body text-dark" style="text-align: justify">
                             <div class="card-image">
-                                <img src="{{ asset('storage/images/books/'. $item['picture']) }}" alt="" width="100%">
+                                <img src="{{ asset('storage/images/books/'. $item->picture) }}" alt="" width="100%">
                             </div>
-                            <h6>{{ substr($item['title'], 0, 26) . (strlen($item['title']) > 26 ? '...' : '') }}</h6>
-                            <p class="text-muted">{{ substr($item['description'], 0, 55) . (strlen($item['description']) > 55 ? '...' : '') }}</p>
-                            <p class="text-end text-muted m-0 p-0" style="font-size: 10px;">{{ number_format($item['countViews']) }} views</p>
+                            <h6>{{ substr($item->name, 0, 26) . (strlen($item->name) > 26 ? '...' : '') }}</h6>
+                            <p class="text-muted">{{ substr($item->description, 0, 55) . (strlen($item->description) > 55 ? '...' : '') }}</p>
+                            <p class="text-end text-muted m-0 p-0" style="font-size: 10px;">{{ number_format($item->count_views) }} views</p>
                         </div>
                     </div>
                 </a>

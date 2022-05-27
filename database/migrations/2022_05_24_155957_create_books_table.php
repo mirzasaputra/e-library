@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('publication_year', 4);
             $table->string('author');
+            $table->string('picture');
+            $table->integer('count_views')->default(0);
             $table->timestamps();
         });
     }

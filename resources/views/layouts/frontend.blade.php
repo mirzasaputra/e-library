@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{$title}} - E Library App</title>
 
+    <link rel="apple-touch-icon" href="{{ asset('storage/images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}">
