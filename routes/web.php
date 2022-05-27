@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// FrontEnd
+use App\Http\Controllers\HomeController;
+
+// BackEnd
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Dashboard\DashboardController;
 
@@ -15,8 +19,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 |
 */
 /* Frontend */
-
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /* Backend */
 Route::prefix('auth')->middleware('guest')->group(function(){

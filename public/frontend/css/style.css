@@ -1,9 +1,114 @@
+.navbar li.nav-item.active a.nav-link {
+    color: #ffffff;
+}
+
+.navbar li.nav-item:hover a.nav-link {
+    color: #ffffff;
+}
+
+.navbar .btn-custom-left {
+    padding: 8px 20px;
+    border-radius: 10px 0 0 10px;;
+    width: 100px;
+    border: 2px solid #fff;
+}
+
+.navbar .btn-custom-right {
+    padding: 8px 20px;
+    border-radius: 0 10px 10px 0;;
+    width: 100px;
+    border: 2px solid #fff;
+}
+
+.form-search {
+    border-radius: 25px 0 0 25px;
+    padding: 8px 25px;
+    box-shadow: none!important;
+}
+
+.form-search:focus {
+    border: 1px solid #68A7AD!important;
+}
+
+.btn-search {
+    border-radius: 0 25px 25px 0;
+    padding: 8px 20px 8px 15px;
+}
+
 .btn-primary {
     background-color: #68A7AD;
     border: none;
-    box-shadow: none;
+    box-shadow: none!important;
 }
 .btn-primary:hover, .btn-primary:focus {
     background-color: #467c81;
     border: none;
+    border: 2px solid #fff;
+}
+
+.bg-primary {
+    background-color: #68A7AD!important;
+}
+
+#banner .carousel {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
+}
+
+#banner .carousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+#banner .carousel .carousel-indicators {
+    justify-content: left!important;
+    margin-left: 25px!important;
+}
+
+#banner .carousel .title {
+    position: absolute;
+    color: #cecece;
+    left: 20px;
+    top: 65vh;
+}
+
+.books .card-image {
+    position: relative;
+    border: 1px solid #cecece;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.navbar-fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    animation: fadeIn .5s ease-in-out;
+}
+
+.books .latest-books {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 8px 0;
+    background: #d22f2f;
+    color: #fff;
+    z-index: 111;
+    font-size: 13px;
+    padding: 3px 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@keyframes fadeIn {
+    0% {
+        margin-top: -150px;
+    } 100% {
+        margin-top: 0;
+    }
 }

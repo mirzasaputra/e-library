@@ -81,7 +81,7 @@ const handleEvent = () => {
             } else {
                 var data = await res.response.json()
 
-                alert(data.message)
+                notify('warning', data.message)
             }
         }
     })
