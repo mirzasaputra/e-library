@@ -43,11 +43,11 @@ table = initTable('#dataTable',
         mRender: function (data, type, row) {
             var render = ``
 
-            if (userPermissions.includes('update-users')) {
+            if (userPermissions.includes('update-books')) {
                 render += `<button class="btn btn-outline-primary btn-sm" data-toggle="edit" data-id="${data}"><i class="feather icon-edit"></i></button> `
             }
 
-            if (userPermissions.includes('delete-users')) {
+            if (userPermissions.includes('delete-books')) {
                 render += `<button class="btn btn-outline-danger btn-sm" data-toggle="delete" data-id="${data}"><i class="feather icon-trash-2"></i></button> `
             }
 

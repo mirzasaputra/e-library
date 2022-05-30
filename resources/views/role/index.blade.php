@@ -13,9 +13,11 @@
 
 <div class="card">
     <div class="card-body">
+        @can('create-roles')
         <div class="col-12 text-right mb-1">
-            <button class="btn btn-primary" data-toggle="ajax" data-target="{{ route('admin.users.create') }}"><i class="fa fa-plus"></i> Tambah</button>
+            <button class="btn btn-primary" id="create-roles"><i class="fa fa-plus"></i> Tambah</button>
         </div>
+        @endcan
         <table class="table zero-configuration" id="dataTable" data-url="{{ route('admin.roles.getData') }}" width="100%">
             <thead>
                 <th>No.</th>
@@ -26,4 +28,5 @@
     </div>
 </div>
 
+@include('role.partials.form')
 @endsection

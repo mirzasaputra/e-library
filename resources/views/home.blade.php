@@ -31,7 +31,7 @@
         <div class="row my-5">
             @foreach($popularBooks as $item)
             <div class="col-md-3 col-sm-6 col-6">
-                <a href="" class="nav-link">
+                <a href="{{ route('detail', $item->hashid) }}" class="nav-link">
                     <div class="card books shadow-sm">
                         <div class="card-body text-dark" style="text-align: justify">
                             <div class="card-image">
@@ -49,14 +49,14 @@
     </div>
 </section>
 {{-- End Popular Book --}}
-{{-- Popular Book --}}
-<section id="popularBook" class="py-5">
+{{-- Latest Book --}}
+<section id="latestBook" class="py-5">
     <div class="container">
         <h4 class="text-center mb-5"><span style="border-bottom: 3px solid #68A7AD;padding: 3px">LATEST BOOKS</span></h4>
         <div class="row my-5">
             @foreach($latestBooks as $item)
             <div class="col-md-3 col-sm-6 col-6">
-                <a href="" class="nav-link">
+                <a href="{{ route('detail', $item->hashid) }}" class="nav-link">
                     <div class="card books shadow-sm">
                         <span class="latest-books">NEW</span>
                         <div class="card-body text-dark" style="text-align: justify">
@@ -74,6 +74,6 @@
         </div>
     </div>
 </section>
-{{-- End Popular Book --}}
+{{-- End Latest Book --}}
 
 @endsection

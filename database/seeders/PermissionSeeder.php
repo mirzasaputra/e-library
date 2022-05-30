@@ -23,6 +23,12 @@ class PermissionSeeder extends Seeder
 
             # books
             'read-books', 'create-books', 'update-books', 'delete-books',
+            
+            # members
+            'read-members', 'create-members', 'update-members', 'delete-members',
+            
+            # roles
+            'read-roles', 'create-roles', 'update-roles', 'delete-roles',
 
             # users
             'read-users', 'create-users', 'update-users', 'delete-users',

@@ -26,6 +26,7 @@ use App\Http\Controllers\User\UserController;
 */
 /* Frontend */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/{book}/detail', [KatalogController::class, 'detail'])->name('detail');
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 
@@ -42,16 +43,29 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
     Route::prefix('books')->middleware('can:read-books')->group(function(){
         Route::get('', [BookController::class, 'index'])->name('admin.books');
         Route::get('getData', [BookController::class, 'getData'])->name('admin.books.getData');
+        Route::get('create', [BookController::class, 'create'])->name('admin.books.create')->middleware('can:create-books');
+        Route::post('store', [BookController::class, 'store'])->name('admin.books.store')->middleware('can:create-books');
+        Route::get('{book}/edit', [BookController::class, 'edit'])->name('admin.books.edit')->middleware('can:update-books');
+        Route::post('{book}/update', [BookController::class, 'update'])->name('admin.books.update')->middleware('can:update-books');
+        Route::delete('{book}/delete', [BookController::class, 'destroy'])->name('admin.books.delete')->middleware('can:delete-books');
     });
 
-    Route::prefix('members')->middleware('can:read-books')->group(function(){
+    Route::prefix('members')->middleware('can:read-members')->group(function(){
         Route::get('', [MemberController::class, 'index'])->name('admin.members');
         Route::get('getData', [MemberController::class, 'getData'])->name('admin.members.getData');
+        Route::get('create', [MemberController::class, 'create'])->name('admin.members.create')->middleware('can:create-members');
+        Route::post('store', [MemberController::class, 'store'])->name('admin.members.store')->middleware('can:create-members');
     });
 
-    Route::prefix('roles')->middleware('can:read-books')->group(function(){
+    Route::prefix('roles')->middleware('can:read-roles')->group(function(){
         Route::get('', [RoleController::class, 'index'])->name('admin.roles');
         Route::get('getData', [RoleController::class, 'getData'])->name('admin.roles.getData');
+        Route::post('store', [RoleController::class, 'store'])->name('admin.roles.store')->middleware('can:create-roles');
+        Route::get('{id}/edit', [RoleController::class, 'edit'])->name('admin.roles.edit')->middleware('can:update-roles');
+        Route::post('{id}/update', [RoleController::class, 'update'])->name('admin.roles.update')->middleware('can:update-roles');
+        Route::delete('{id}/delete', [RoleController::class, 'destroy'])->name('admin.roles.delete')->middleware('can:delete-roles');
+        Route::get('{id}/change', [RoleController::class, 'show'])->name('admin.roles.change')->middleware('can:update-roles');
+        Route::post('{id}/update-permission', [RoleController::class, 'changePermission'])->name('admin.roles.update-permission')->middleware('can:update-roles');
     });
 
     Route::prefix('users')->middleware('can:read-users')->group(function(){

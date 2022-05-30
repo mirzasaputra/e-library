@@ -13,7 +13,7 @@ class MemberController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Members',
+            'title' => 'Anggota',
             'mods' => 'member'
         ];
 
@@ -23,6 +23,16 @@ class MemberController extends Controller
     public function getData()
     {
         return DataTables::of(Member::query())->make();
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Tambah Anggota',
+            'action' => route('admin.members.store')
+        ];
+
+        return customView('member.form', $data);
     }
 
 }

@@ -14,7 +14,7 @@
 <div class="card">
     <div class="card-body">
         <div class="col-12 text-right mb-1">
-            <button class="btn btn-primary" data-toggle="ajax" data-target="{{ route('admin.users.create') }}"><i class="fa fa-plus"></i> Tambah</button>
+            <button class="btn btn-primary" data-toggle="ajax" data-target="{{ route('admin.members.create') }}"><i class="fa fa-plus"></i> Tambah</button>
         </div>
         <table class="table zero-configuration" id="dataTable" data-url="{{ route('admin.members.getData') }}" width="100%">
             <thead>
