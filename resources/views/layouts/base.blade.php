@@ -10,6 +10,7 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <meta name="base-url" content="{{ url('/') }}">
+    <meta name="asset-url" content="{{ asset('/') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="user-permissions" content="{{ getAuthPermissions() }}">
     <title>{{ $title }} | Administrator E - Library App</title>

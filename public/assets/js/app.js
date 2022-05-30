@@ -68,6 +68,29 @@ const handleEvent = () => {
         pushState($(this).data('target'))
     })
 
+    $('button[data-toggle="edit"]').unbind().on('click', function(e){
+        e.preventDefault()
+        pushState(`${window.location.href}/${$(this).data('id')}/edit`)
+    })
+
+    $('button[data-toggle="delete"]').unbind().on('click', function(e){
+        e.preventDefault()
+        let id = $(this).data('id')
+        swal.fire({
+            tilte: 'Delete?',
+            icon: 'question',
+            text: 'Yakin ingin menghapus data?',
+            showConfirmButton: true,
+            confirmButtonText: 'Ya, lanjutkan',
+            showCancelButton: true,
+            cancelButtonText: 'Batal'
+        }).then(res => {
+            if(res.isConfirmed){
+                deleteEvent(id)
+            }
+        })
+    })
+
     $('form[data-request="ajax"]').unbind().on('submit', async function(e){
         e.preventDefault();
         var oldBtn = $(this).find('button[type="submit"]').html()
@@ -89,7 +112,20 @@ const handleEvent = () => {
                     window.location.assign($(this).data('success-callback'))
                 }
             } else {
-
+                var data = await res.response.json()
+                
+                notify('success', data.message)
+                if(typeof $(this).data('success-callback') == 'undefined' || typeof $(this).data('success-callback') == 'null'){
+                    $('.modal').modal('hide')
+                    $('.modal-backdrop').remove()
+                    $('body').removeClass('modal-open')
+                    if(typeof table != 'undefined') table.ajax.reload()
+                    else handleView()
+                } else {
+                    pushState($(this).data('success-callback'))
+                    if(typeof table != 'undefined') table.ajax.reload()
+                    else handleView()
+                }
             }
         } else {
             if(res.status == 422){
@@ -103,6 +139,41 @@ const handleEvent = () => {
             }
         }
     })
+}
+
+const deleteEvent = async (id) => {
+    swal.fire({
+        title: 'Loading',
+        html: 'Sedang menghapus data',
+        allowOutsideClick: false,
+        didOpen: () => {
+            swal.showLoading()
+        }
+    })
+
+    const res = await fetch(`${window.location.href}/${id}/delete`, {
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: 'delete'
+    })
+
+    swal.close()
+    if(res.status == 200){
+        var data = await res.json()
+
+        notify('success', data.message)
+        if(typeof table != 'undefined') table.ajax.reload()
+        else handleView()
+    } else {
+        if(res.status == 401){
+            window.location.reload()
+        } else {
+            var data = await res.json()
+            notify('warning', data.message)
+        }
+    }
 }
 
 const formRequest = async (form) => {

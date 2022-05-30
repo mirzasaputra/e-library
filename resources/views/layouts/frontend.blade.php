@@ -16,6 +16,11 @@
     @include('layouts.partials.top-nav-frontend')
     @yield('content')
 
+    {{-- footer --}}
+    <footer class="bg-primary p-5 text-center text-light">
+        Copyright&copy; 2022 | E - Library Apps
+    </footer>
+
     <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/app.js') }}"></script>

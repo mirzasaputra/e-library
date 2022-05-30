@@ -68,7 +68,7 @@
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{ ucfirst(getInfoLogin()->name) }}</span><span class="user-status">{{ getInfoLogin()->roles[0]->name }}</span></div><span><img class="round" src="{{ 'https://ui-avatars.com/api/?name=' . getInfoLogin()->name . '&&background=random' }}" alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="page-user-profile.html"><i class="feather icon-user"></i> Edit Profile</a><a class="dropdown-item" href="app-email.html"><i class="feather icon-mail"></i> My Inbox</a><a class="dropdown-item" href="app-todo.html"><i class="feather icon-check-square"></i> Task</a><a class="dropdown-item" href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="auth-login.html"><i class="feather icon-power"></i> Logout</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('auth.logout') }}"><i class="feather icon-power"></i> Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -183,25 +183,39 @@
             <li class=" nav-item">
                 <a href="#">
                     <i class="feather icon-grid"></i>
-                    <span class="menu-title" data-i18n="Ecommerce">Master Data</span>
+                    <span class="menu-title">Master Data</span>
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a href="app-ecommerce-shop.html">
+                        <a href="{{ route('admin.books') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
-                            <span class="menu-item" data-i18n="Shop">Data Buku</span>
+                            <span class="menu-item">Data Buku</span>
                         </a>
                     </li>
                     <li>
-                        <a href="app-ecommerce-details.html">
+                        <a href="{{ route('admin.members') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
-                            <span class="menu-item" data-i18n="Details">Data Anggota</span>
+                            <span class="menu-item">Data Anggota</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="feather icon-user"></i>
+                    <span class="menu-title">Management Users</span>
+                </a>
+                <ul class="menu-content">
                     <li>
                         <a href="{{ route('admin.users') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
-                            <span class="menu-item" data-i18n="Wish List">Data User</span>
+                            <span class="menu-item">Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.roles') }}" data-toggle="ajax">
+                            <i class="feather icon-circle"></i>
+                            <span class="menu-item">Roles</span>
                         </a>
                     </li>
                 </ul>

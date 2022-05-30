@@ -32,7 +32,7 @@
 
 .btn-search {
     border-radius: 0 25px 25px 0;
-    padding: 8px 20px 8px 15px;
+    padding: 10px 20px 10px 15px;
 }
 
 .btn-primary {
@@ -43,7 +43,6 @@
 .btn-primary:hover, .btn-primary:focus {
     background-color: #467c81;
     border: none;
-    border: 2px solid #fff;
 }
 
 .bg-primary {
@@ -111,4 +110,29 @@
     } 100% {
         margin-top: 0;
     }
+}
+
+.text-primary {
+    color: #68A7AD!important;
+}
+
+ul.katalog {
+    margin: 0;
+    padding: 0;
+}
+
+ul.katalog li {
+    list-style: none;
+    border-bottom: 1px solid #cecece;
+    padding: 15px 20px;
+}
+
+ul.katalog li a {
+    text-decoration: none;
+    color: #989898;
+}
+
+ul.katalog li.active, ul.katalog li.active a {
+    background: #68A7AD;
+    color: #fff;
 }

@@ -21,8 +21,11 @@ class PermissionSeeder extends Seeder
             # dahsboard
             'read-dashboard',
 
+            # books
+            'read-books', 'create-books', 'update-books', 'delete-books',
+
             # users
-            'read-users', 'create-users', 'update-users', 'delete-users'
+            'read-users', 'create-users', 'update-users', 'delete-users',
         ]);
         
         $this->insertPermission($permission);

@@ -22,6 +22,18 @@ class RoleSeeder extends Seeder
 
         $developer->givePermissionTo([
             'read-dashboard',
+            'read-books', 'create-books', 'update-books', 'delete-books',
+            'read-users', 'create-users', 'update-users', 'delete-users',
+        ]);
+        
+        $administrator = Role::create([
+            'name' => 'Administrator',
+            'guard_name' => 'web',
+        ]);
+        
+        $administrator->givePermissionTo([
+            'read-dashboard',
+            'read-books', 'create-books', 'update-books', 'delete-books',
             'read-users', 'create-users', 'update-users', 'delete-users',
         ]);
     }

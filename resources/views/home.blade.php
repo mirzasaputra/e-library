@@ -76,9 +76,4 @@
 </section>
 {{-- End Popular Book --}}
 
-{{-- footer --}}
-<footer class="bg-primary p-5 text-center text-light">
-    Copyright&copy; 2022 | E - Library Apps
-</footer>
-
 @endsection

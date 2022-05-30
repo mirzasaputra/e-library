@@ -17,23 +17,20 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container">
-        
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupport"><span class="navbar-toggler-icon"></span></button>
         <div class="navbar-collapse collapse" id="navbarSupport">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a href="" class="nav-link">Home</a>
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Katalog</a>
+                    <a href="{{ route('katalog') }}" class="nav-link">Katalog</a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Contact Us</a>
-                </li>
-                <li class="nav-item ms-3">
+                    <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>
                 </li>
             </ul>
         </div>
