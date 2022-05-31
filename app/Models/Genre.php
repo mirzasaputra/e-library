@@ -7,15 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Mtvs\EloquentHashids\HasHashid;
 use Mtvs\EloquentHashids\HashidRouting;
 
-class Book extends Model
+class Genre extends Model
 {
     use HasFactory, HasHashid, HashidRouting;
 
     protected $guarded = [];
     protected $appends = ['hashid'];
-
-    public function genre()
-    {
-        return $this->belongsTo(Genre::class);
-    }
 }

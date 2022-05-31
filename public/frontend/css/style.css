@@ -123,13 +123,21 @@ ul.katalog {
 
 ul.katalog li {
     list-style: none;
-    border-bottom: 1px solid #cecece;
-    padding: 15px 20px;
 }
 
 ul.katalog li a {
+    display: block;
     text-decoration: none;
     color: #989898;
+    border-bottom: 1px solid #cecece;
+    padding: 15px 20px;
+    transition: .3s ease-in-out
+}
+
+ul.katalog li:hover a {
+    color: #68A7AD;
+    padding-left: 30px;
+    transition: .3s ease-in-out
 }
 
 ul.katalog li.active, ul.katalog li.active a {
