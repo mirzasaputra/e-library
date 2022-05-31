@@ -10,4 +10,7 @@ use Mtvs\EloquentHashids\HashidRouting;
 class Member extends Model
 {
     use HasFactory, HasHashid, HashidRouting;
+
+    protected $guarded = [];
+    protected $appends = ['hashid'];
 }

@@ -86,7 +86,7 @@ class UserController extends Controller
         } catch(Exception $e){
             return response()->json([
                 'message' => $e->getMessage(),
-                'trace' => $e->getTrace(),
+                'trace' => $e->getTrace()
             ], 500);
         }
     }

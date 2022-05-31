@@ -55,6 +55,9 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
         Route::get('getData', [MemberController::class, 'getData'])->name('admin.members.getData');
         Route::get('create', [MemberController::class, 'create'])->name('admin.members.create')->middleware('can:create-members');
         Route::post('store', [MemberController::class, 'store'])->name('admin.members.store')->middleware('can:create-members');
+        Route::get('{member}/edit', [MemberController::class, 'edit'])->name('admin.members.edit')->middleware('can:update-members');
+        Route::post('{member}/update', [MemberController::class, 'update'])->name('admin.members.update')->middleware('can:update-members');
+        Route::delete('{member}/delete', [MemberController::class, 'destroy'])->name('admin.members.delete')->middleware('can:delete-members');
     });
 
     Route::prefix('roles')->middleware('can:read-roles')->group(function(){
