@@ -81,3 +81,7 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
         Route::delete('{user}/delete', [UserController::class, 'destroy'])->name('admin.users.delete')->middleware('can:delete-users');
     });
 });
+
+Route::get('/login', function(){
+    return view('login');
+});
