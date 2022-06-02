@@ -29,6 +29,7 @@ use App\Http\Controllers\User\UserController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/{book}/detail', [KatalogController::class, 'detail'])->name('detail');
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
+Route::get('/katalog/{genre_id}', [KatalogController::class, 'getData'])->name('katalog.getData');
 Route::get('/booking', [BookingController::class, 'index'])->name('booking');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 

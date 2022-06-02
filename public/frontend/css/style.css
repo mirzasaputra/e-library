@@ -77,8 +77,7 @@
 
 .books .card-image {
     position: relative;
-    border: 1px solid #cecece;
-    height: 300px;
+    min-height: 300px;
     overflow: hidden;
     margin-bottom: 1.5rem;
 }
