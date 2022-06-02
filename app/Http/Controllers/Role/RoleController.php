@@ -110,7 +110,7 @@ class RoleController extends Controller
     public function destroy($id)
     {
         try {
-            Role::findOrFail($id)->delete();
+            Role::findOrFail(Hashids::decode($id)[0])->delete();
 
             return response()->json([
                 'message' => 'Data telah dihapus',
