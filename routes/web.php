@@ -42,7 +42,7 @@ Route::prefix('auth')->middleware('guest')->group(function(){
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::prefix('administrator')->middleware('auth')->group(function(){
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('read-dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('can:read-dashboard');
 
     Route::prefix('genres')->middleware('can:read-genres')->group(function(){
         Route::get('', [GenreController::class, 'index'])->name('admin.genres');
@@ -98,4 +98,8 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
 
 Route::get('/login', function(){
     return view('login');
-});
+})->name('login');
+
+Route::get('/register', function(){
+    return view('register');
+})->name('register');
