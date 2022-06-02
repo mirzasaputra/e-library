@@ -22,6 +22,13 @@ table = initTable('#dataTable',
     {
         name: 'name',
         data: 'name',
+        width: '15%',
+        mRender: function(data, type, row){
+            return `
+                <i class="badge badge-primary">${row.genre}</i>
+                <p class="m-0 p-0">${data}</p>
+            `
+        }
     },
     {
         name: 'description',
@@ -30,19 +37,22 @@ table = initTable('#dataTable',
     {
         name: 'publication_year',
         data: 'publication_year',
+        sClass: 'nowrap',
     },
     {
         name: 'author',
         data: 'author',
+        width: '15%'
     },
     {
         name: 'id',
         data: 'hashid',
-        width: 150,
+        width: 200,
         sortable: false,
         mRender: function (data, type, row) {
             var render = ``
 
+            render += `<button class="btn btn-outline-warning btn-sm" data-toggle="ajax" data-target="${window.location.href}/${data}/detail"><i class="feather icon-eye"></i></button> `
             if (userPermissions.includes('update-books')) {
                 render += `<button class="btn btn-outline-primary btn-sm" data-toggle="edit" data-id="${data}"><i class="feather icon-edit"></i></button> `
             }
@@ -54,4 +64,4 @@ table = initTable('#dataTable',
             return render
         }
     }
-])
+], null, [2, 'asc'])

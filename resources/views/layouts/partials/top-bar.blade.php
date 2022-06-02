@@ -187,6 +187,12 @@
                 </a>
                 <ul class="menu-content">
                     <li>
+                        <a href="{{ route('admin.genres') }}" data-toggle="ajax">
+                            <i class="feather icon-circle"></i>
+                            <span class="menu-item">Data Genre</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('admin.books') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Data Buku</span>
@@ -196,6 +202,26 @@
                         <a href="{{ route('admin.members') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Data Anggota</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="feather icon-repeat"></i>
+                    <span class="menu-title">Transaksi</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a href="" data-toggle="ajax">
+                            <i class="feather icon-circle"></i>
+                            <span class="menu-item">Peminjaman</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-toggle="ajax">
+                            <i class="feather icon-circle"></i>
+                            <span class="menu-item">Pengembalian</span>
                         </a>
                     </li>
                 </ul>

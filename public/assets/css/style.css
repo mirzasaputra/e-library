@@ -13,3 +13,33 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .nowrap {
 	white-space: nowrap;
 }
+
+.select2 {
+	width: 98%;
+}
+
+.select2-search__field {
+	padding: 10px;
+}
+
+.select2-search__field:focus {
+	-webkit-appearance: unset;
+	outline: none!important;
+	padding: 10px;
+}
+
+.swal2-styled.swal2-confirm {
+	background: #68A7AD!important;
+}
+
+.swal2-styled.swal2-cancel {
+	background: #cf3f3f!important;
+}
+
+.swal2-styled.swal2-confirm:hover, .swal2-styled.swal2-confirm:focus {
+	background: #307278!important;
+}
+
+.swal2-styled.swal2-cancel:hover, .swal2-styled.swal2-cancel:focus {
+	background: #c92b2b!important;
+}

@@ -143,3 +143,9 @@ ul.katalog li.active, ul.katalog li.active a {
     background: #68A7AD;
     color: #fff;
 }
+
+@media(min-width: 900px){
+    .books .card-image {
+        height: 280px;
+    }
+}

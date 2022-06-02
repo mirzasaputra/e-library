@@ -9,6 +9,7 @@ use App\Http\Controllers\BookingController;
 
 // BackEnd
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Genre\GenreController;
 use App\Http\Controllers\Book\BookController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Member\MemberController;
@@ -41,13 +42,23 @@ Route::prefix('auth')->middleware('guest')->group(function(){
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::prefix('administrator')->middleware('auth')->group(function(){
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('read-dashboard');
+
+    Route::prefix('genres')->middleware('can:read-genres')->group(function(){
+        Route::get('', [GenreController::class, 'index'])->name('admin.genres');
+        Route::get('getData', [GenreController::class, 'getData'])->name('admin.genres.getData');
+        Route::post('store', [GenreController::class, 'store'])->name('admin.genres.store');
+        Route::get('{genre}/edit', [GenreController::class, 'edit'])->name('admin.genres.edit');
+        Route::post('{genre}/update', [GenreController::class, 'update'])->name('admin.genres.update');
+        Route::delete('{genre}/delete', [GenreController::class, 'destroy'])->name('admin.genres.delete');
+    });
 
     Route::prefix('books')->middleware('can:read-books')->group(function(){
         Route::get('', [BookController::class, 'index'])->name('admin.books');
         Route::get('getData', [BookController::class, 'getData'])->name('admin.books.getData');
         Route::get('create', [BookController::class, 'create'])->name('admin.books.create')->middleware('can:create-books');
         Route::post('store', [BookController::class, 'store'])->name('admin.books.store')->middleware('can:create-books');
+        Route::get('{book}/detail', [BookController::class, 'detail'])->name('admin.books.detail');
         Route::get('{book}/edit', [BookController::class, 'edit'])->name('admin.books.edit')->middleware('can:update-books');
         Route::post('{book}/update', [BookController::class, 'update'])->name('admin.books.update')->middleware('can:update-books');
         Route::delete('{book}/delete', [BookController::class, 'destroy'])->name('admin.books.delete')->middleware('can:delete-books');

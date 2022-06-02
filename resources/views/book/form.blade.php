@@ -32,6 +32,15 @@
                     <input type="text" name="author" class="form-control" placeholder="Penerbit" autocomplete="off" value="{{ isset($data) ? $data->author : '' }}">
                 </div>
                 <div class="form-group">
+                    <label for="" class="form-label">Genre</label>
+                    <select name="genre_id" class="form-control select2">
+                        <option value="">Pilih genre</option>
+                        @foreach($genres as $item)
+                            <option value="{{ $item->hashid }}" {{ isset($data) && $data->genre_id == $item->id ? 'selected' : ''}}>{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="" class="form-label">Dekripsi</label>
                     <textarea name="description" rows="4" class="form-control">{{ isset($data) ? $data->description : '' }}</textarea>
                 </div>
@@ -59,5 +68,7 @@
         format: 'yyyy',
         date: new Date()
     })
+
+    $('.select2').select2()
 </script>
 @endsection

@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
 
         $developer->givePermissionTo([
             'read-dashboard',
+            'read-genres', 'create-genres', 'update-genres', 'delete-genres',
             'read-books', 'create-books', 'update-books', 'delete-books',
             'read-members', 'create-members', 'update-members', 'delete-members',
             'read-roles', 'create-roles', 'update-roles', 'delete-roles',
@@ -35,6 +36,7 @@ class RoleSeeder extends Seeder
         
         $administrator->givePermissionTo([
             'read-dashboard',
+            'read-genres', 'create-genres', 'update-genres', 'delete-genres',
             'read-books', 'create-books', 'update-books', 'delete-books',
             'read-members', 'create-members', 'update-members', 'delete-members',
             'read-roles', 'create-roles', 'update-roles', 'delete-roles',

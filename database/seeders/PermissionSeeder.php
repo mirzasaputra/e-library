@@ -21,6 +21,9 @@ class PermissionSeeder extends Seeder
             # dahsboard
             'read-dashboard',
 
+            # genres
+            'read-genres', 'create-genres', 'update-genres', 'delete-genres',
+
             # books
             'read-books', 'create-books', 'update-books', 'delete-books',
             

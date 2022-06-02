@@ -6,6 +6,13 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BookRequest extends FormRequest
 {
+    private $routeName;
+
+    public function __construct()
+    {
+        $this->routeName = request()->route()->getName();
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,10 +31,14 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
+            'genre_id' => 'required',
             'name' => 'required',
             'publication_year' => 'required',
             'author' => 'required',
-            'file' => 'mimes:jpg,jpeg,png|required'
+            'file' => [
+                $this->routeName == 'admin.books.store' ? 'required' : 'nullable',
+                'mimes:jpg,jpeg,png,gif'
+            ]
         ];
     }
 }
