@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-8 col-sm-6 col-12">
             <div class="col-8">
-                <span class="badge bg-primary small">Category</span>
+                <span class="badge bg-primary small">{{ ucfirst($data->genre->name) }}</span>
                 <h3>{{ $data->name }}</h3>
                 <p class="text-muted mb-4">{{ $data->description }}</p>
                 <table class="text-muted mb-4">
@@ -44,6 +44,7 @@
                             <div class="card-image">
                                 <img src="{{ asset('storage/images/books/'. $item->picture) }}" alt="" width="100%">
                             </div>
+                            <span class="badge bg-primary small">{{ ucfirst($item->genre->name) }}</span>
                             <h6>{{ substr($item->name, 0, 26) . (strlen($item->name) > 26 ? '...' : '') }}</h6>
                             <p class="text-muted">{{ substr($item->description, 0, 35) . (strlen($item->description) > 35 ? '...' : '') }}</p>
                             <p class="text-end text-muted m-0 p-0" style="font-size: 10px;">{{ number_format($item->count_views) }} views</p>

@@ -27,7 +27,7 @@
                     <a href="{{ route('katalog') }}" class="nav-link">Katalog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Booking</a>
+                    <a href="{{ route('booking') }}" class="nav-link">Booking</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('contact') }}" class="nav-link">Contact Us</a>

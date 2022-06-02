@@ -45,3 +45,13 @@
 </div>
 
 @endsection
+
+@section('_js')
+<script>
+    $('ul.katalog li.item a').unbind().on('click', function(e){
+        e.preventDefault();
+        $('ul.katalog li.item.active').removeClass('active')
+        $(this).parent().addClass('active')
+    })
+</script>
+@endsection
