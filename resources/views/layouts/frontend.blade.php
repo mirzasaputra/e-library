@@ -13,6 +13,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/select/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css')}}">
 </head>
 <body>
@@ -26,6 +28,8 @@
 
     <script src="{{ asset('frontend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/sweetalert2/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.min.js') }}"></script>
     <script src="{{ asset('frontend/js/app.js') }}"></script>
     @yield('_js')
 </body>

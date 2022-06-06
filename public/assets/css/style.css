@@ -43,3 +43,20 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .swal2-styled.swal2-cancel:hover, .swal2-styled.swal2-cancel:focus {
 	background: #c92b2b!important;
 }
+
+.auth .wave{
+	width: 50%;
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+}
+.auth .img img{
+	width: 500px;
+	
+}
+.auth .avatar{
+	width: 100px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

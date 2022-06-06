@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
             $table->foreignId('member_id');
-            $table->date('date');
-            $table->date('date_of_return');
-            $table->enum('status', ['not_be_restored', 'returned']);
+            $table->date('date')->nullable();
+            $table->date('date_of_return')->nullable();
+            $table->enum('status', ['pending', 'not_be_restored', 'returned']);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('restrict');
             $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade')->onUpdate('restrict');

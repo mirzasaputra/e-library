@@ -18,6 +18,7 @@ class RoleSeeder extends Seeder
         $developer = Role::create([
             'name' => 'Developer',
             'guard_name' => 'web',
+            'is_default' => true
         ]);
 
         $developer->givePermissionTo([
@@ -29,9 +30,16 @@ class RoleSeeder extends Seeder
             'read-users', 'create-users', 'update-users', 'delete-users',
         ]);
         
+        $member = Role::create([
+            'name' => 'Member',
+            'guard_name' => 'web',
+            'is_default' => true
+        ]);
+        
         $administrator = Role::create([
             'name' => 'Administrator',
             'guard_name' => 'web',
+            'is_default' => true
         ]);
         
         $administrator->givePermissionTo([

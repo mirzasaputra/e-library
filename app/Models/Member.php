@@ -13,4 +13,9 @@ class Member extends Model
 
     protected $guarded = [];
     protected $appends = ['hashid'];
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

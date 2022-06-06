@@ -25,13 +25,15 @@ table = initTable('#dataTable',
         mRender: function (data, type, row) {
             var render = ``
 
-            if (userPermissions.includes('update-roles')) {
-                render += `<button class="btn btn-outline-primary btn-sm" onclick="editTable('${data}')"><i class="feather icon-edit"></i></button> `
-                render += `<button class="btn btn-outline-warning btn-sm" data-toggle="ajax" data-target="${window.location.href}/${data}/change"><i class="feather icon-shield"></i></button> `
-            }
-
-            if (userPermissions.includes('delete-roles')) {
-                render += `<button class="btn btn-outline-danger btn-sm" data-toggle="delete" data-id="${data}"><i class="feather icon-trash-2"></i></button> `
+            if(row.is_default == false){
+                if (userPermissions.includes('update-roles')) {
+                    render += `<button class="btn btn-outline-primary btn-sm" onclick="editTable('${data}')"><i class="feather icon-edit"></i></button> `
+                    render += `<button class="btn btn-outline-warning btn-sm" data-toggle="ajax" data-target="${window.location.href}/${data}/change"><i class="feather icon-shield"></i></button> `
+                }
+    
+                if (userPermissions.includes('delete-roles')) {
+                    render += `<button class="btn btn-outline-danger btn-sm" data-toggle="delete" data-id="${data}"><i class="feather icon-trash-2"></i></button> `
+                }
             }
 
             return render

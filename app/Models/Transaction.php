@@ -10,4 +10,12 @@ use Mtvs\EloquentHashids\HashidRouting;
 class Transaction extends Model
 {
     use HasFactory, HasHashid, HashidRouting;
+
+    protected $guarded = [];
+    protected $appends = ['hashid'];
+
+    public function transactionDetail()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
 }

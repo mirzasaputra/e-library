@@ -149,3 +149,38 @@ ul.katalog li.active, ul.katalog li.active a {
         height: 280px;
     }
 }
+
+img.round {
+    border-radius: 50%;
+}
+
+.form-control {
+    outline: none!important;
+    border: 1px solid #467c81!important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 4px #68A7AD!important;
+}
+
+.swal2-styled.swal2-confirm {
+    background: #68A7AD!important;
+}
+
+.swal2-styled.swal2-confirm {
+    box-shadow: 0 0 3px #467c81!important;
+}
+
+.select2-container--default .select2-selection--single {
+    padding: 5px 15px;
+    height: unset;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    padding: 20px;
+    height: unset;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: #68A7AD;
+}

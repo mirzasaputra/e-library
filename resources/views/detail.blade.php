@@ -24,7 +24,7 @@
                         <td>: {{$data->author}}</td>
                     </tr>
                 </table>
-                <button class="btn btn-primary px-5" style="border-radius: 25px;">Pinjam</button>
+                <a href="{{ route('booking.store', $data->hashid) }}" class="btn btn-primary px-5" style="border-radius: 25px;">Booking Now</a>
             </div>
         </div>
     </div>

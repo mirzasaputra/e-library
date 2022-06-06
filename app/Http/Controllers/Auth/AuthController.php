@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Member;
 
 class AuthController extends Controller
 {
@@ -36,7 +38,7 @@ class AuthController extends Controller
                         $user = $user->first();
 
                         if($user->roles[0]->name == "Member"){
-                            $redirect = url('/dashboard');
+                            $redirect = url('/');
                         } else {
                             $redirect = route('admin.dashboard');
                         }
@@ -57,7 +59,7 @@ class AuthController extends Controller
                         'errors' => [
                             'username' => ['Username has not registered']
                         ]
-                    ]);
+                    ], 422);
                 }
             } catch(Exception $e){
                 return response()->json([
@@ -67,6 +69,42 @@ class AuthController extends Controller
             }
         } else {
             abort(403);
+        }
+    }
+
+    public function register()
+    {
+        $data = [
+            'title' => 'Register'
+        ];
+
+        return view('auth.register', $data);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'username' => 'required|unique:users',
+            'password' => 'required'
+        ]);
+
+        try {
+            $member = Member::create($request->only(['name','phone','email','address']));
+            $request->merge(['password' => Hash::make($request->password), 'member_id' => $member->id]);
+            User::create($request->only(['member_id', 'name', 'phone', 'email', 'username', 'password']))->assignRole('Member');
+
+            return response()->json([
+                'message' => 'Data telah ditambahkan',
+            ]);
+
+        } catch(Exception $e) {
+            return restponse()->json([
+                'message' => $e->getMessage(),
+                'trace' => $e->getTrace()
+            ], 500);
         }
     }
 

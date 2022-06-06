@@ -1,79 +1,36 @@
 @extends('layouts.auth')
 
 @section('content')
-
-<!-- BEGIN: Content-->
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="header-navbar-shadow"></div>
-    <div class="content-wrapper">
-        <div class="content-header row">
+    <img class="wave" src="{{ asset('storage/images/wave.png') }}" alt="">
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh">
+        <div class="img" style="margin-right: 16rem">
+            <img src="{{ asset('storage/images/login.svg') }}" alt="">
         </div>
-        <div class="content-body">
-            <section class="row flexbox-container">
-                <div class="col-xl-7 col-11 d-flex justify-content-center">
-                    <div class="card bg-authentication rounded-0 mb-0">
-                        <div class="row m-0">
-                            <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                <img src="{{ asset('app-assets/images/pages/login.png') }}" alt="branding logo" width="63%">
-                            </div>
-                            <div class="col-lg-6 col-12 p-0">
-                                <div class="card rounded-0 mb-0 px-2">
-                                    <div class="card-header pb-1">
-                                        <div class="card-title">
-                                            <h4 class="mb-0">Login</h4>
-                                        </div>
-                                    </div>
-                                    <p class="px-2">Welcome back, please login to your account.</p>
-                                    <div class="card-content">
-                                        <div class="card-body pt-1 mb-4">
-                                            <form action="{{ route('auth.login') }}" method="post" data-request="ajax" data-redirect="true">
-                                                @csrf
-                                                <fieldset class="form-label-group form-group position-relative has-icon-left">
-                                                    <input type="text" class="form-control" name="username" id="user-name" placeholder="Username">
-                                                    <div class="form-control-position">
-                                                        <i class="feather icon-user"></i>
-                                                    </div>
-                                                    <label for="user-name">Username</label>
-                                                </fieldset>
-
-                                                <fieldset class="form-label-group position-relative has-icon-left">
-                                                    <input type="password" class="form-control" name="password" id="user-password" placeholder="Password">
-                                                    <div class="form-control-position">
-                                                        <i class="feather icon-lock"></i>
-                                                    </div>
-                                                    <label for="user-password">Password</label>
-                                                </fieldset>
-                                                <div class="form-group d-flex justify-content-between align-items-center">
-                                                    <div class="text-left">
-                                                        <fieldset class="checkbox">
-                                                            <div class="vs-checkbox-con vs-checkbox-primary">
-                                                                <input type="checkbox">
-                                                                <span class="vs-checkbox">
-                                                                    <span class="vs-checkbox--check">
-                                                                        <i class="vs-icon feather icon-check"></i>
-                                                                    </span>
-                                                                </span>
-                                                                <span class="">Remember me</span>
-                                                            </div>
-                                                        </fieldset>
-                                                    </div>
-                                                    <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="card ms-5 col-3">
+            <div class="card-body">
+                <img class="avatar" src="{{ asset('storage/images/avatar.svg') }}" alt="">
+                <h2 class="card-title text-center"> Sign In</h2>
+                <div class="card-text">
+                    <form action="{{ route('auth.login') }}" method="post" data-request="ajax" data-redirect="true">
+                        @csrf
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="Check">
+                            <label class="form-check-label" for="Check">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 text-center mb-1">Sign In</button>
+                        <p class="small text-center">Don't have an account? <a style="text-decoration: none"
+                                href="{{ route('auth.register') }}">sign up</a></p>
+                    </form>
                 </div>
-            </section>
-
+            </div>
         </div>
-    </div>
-</div>
-<!-- END: Content-->
-
+    </div>    
 @endsection

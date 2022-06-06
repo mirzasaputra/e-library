@@ -31,13 +31,19 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/{book}/detail', [KatalogController::class, 'detail'])->name('detail');
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/katalog/{genre_id}', [KatalogController::class, 'getData'])->name('katalog.getData');
-Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+Route::prefix('booking')->middleware('auth')->group(function(){
+    Route::get('', [BookingController::class, 'index'])->name('booking');
+    Route::get('{book_id}/store', [BookingController::class, 'store'])->name('booking.store');
+    Route::get('{transactionDetail}/delete', [BookingController::class, 'destroy'])->name('booking.delete');
+});
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 
 /* Backend */
 Route::prefix('auth')->middleware('guest')->group(function(){
     Route::get('/', [AuthController::class, 'index'])->name('auth');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('/register/store', [AuthController::class, 'store'])->name('auth.register.store');
 });
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
@@ -96,10 +102,4 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
     });
 });
 
-Route::get('/login', function(){
-    return view('login');
-})->name('login');
 
-Route::get('/register', function(){
-    return view('register');
-})->name('register');

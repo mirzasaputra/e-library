@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Member;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use DataTables;
 use App\Http\Requests\MemberRequest;
 
@@ -39,7 +41,14 @@ class MemberController extends Controller
     public function store(MemberRequest $request)
     {
         try {
-            Member::create($request->only(['name','phone','email','address']));
+            $member = Member::create($request->only(['name','phone','email','address']));
+            User::create([
+                'member_id' => $member->id,
+                'name' => $request->name,
+                'email' => $request->email,
+                'username' => $request->email,
+                'password' => Hash::make(1234),
+            ])->assignRole('Member');
 
             return response()->json([
                 'message' => 'Data telah ditambahkan'
@@ -83,6 +92,7 @@ class MemberController extends Controller
     {
         try {
             $member->delete();
+            $member->user->delete();
 
             return response()->json([
                 'message' => 'Data telah dihapus'
