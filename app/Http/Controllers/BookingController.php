@@ -34,7 +34,7 @@ class BookingController extends Controller
                 ]);
             }
             
-            $check = TransactionDetail::where('transaction_id', $transaction->id);
+            $check = TransactionDetail::where(['transaction_id' => $transaction->id, 'book_id' => Hashids::decode($book_id)[0]]);
 
             if($check->count() <= 0){
                 TransactionDetail::create([
