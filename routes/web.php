@@ -33,8 +33,12 @@ Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog');
 Route::get('/katalog/{genre_id}', [KatalogController::class, 'getData'])->name('katalog.getData');
 Route::prefix('booking')->middleware('auth')->group(function(){
     Route::get('', [BookingController::class, 'index'])->name('booking');
+    Route::get('{status?}/filter', [BookingController::class, 'index'])->name('booking.filter');
     Route::get('{book_id}/store', [BookingController::class, 'store'])->name('booking.store');
     Route::get('{transactionDetail}/delete', [BookingController::class, 'destroy'])->name('booking.delete');
+    Route::get('checkout', [BookingController::class, 'checkoutShow'])->name('booking.checkout');
+    Route::post('checkout', [BookingController::class, 'checkout'])->name('booking.checkout.store');
+    Route::get('{transaction}/show-qr-code', [BookingController::class, 'showQrCode'])->name('booking.showQrCode');
 });
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 

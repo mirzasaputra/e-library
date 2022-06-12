@@ -11,6 +11,7 @@
 
     <link rel="apple-touch-icon" href="{{ asset('storage/images/favicon.png') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/favicon.png') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('frontend/css/fontawesome.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/sweetalert2/sweetalert2.min.css') }}">
@@ -22,7 +23,7 @@
     @yield('content')
 
     {{-- footer --}}
-    <footer class="bg-primary p-5 text-center text-light">
+    <footer class="page-footer bg-primary p-5 text-center text-light">
         Copyright&copy; 2022 | E - Library Apps
     </footer>
 
