@@ -216,7 +216,7 @@
                 </a>
                 <ul class="menu-content">
                     <li>
-                        <a href="" data-toggle="ajax">
+                        <a href="{{ route('admin.borrows') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Peminjaman</span>
                         </a>

@@ -15,6 +15,8 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Member\MemberController;
 use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Borrow\BorrowController;
+use App\Http\Controllers\Booking\BookingController as BookingAdministratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +106,17 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
         Route::post('{user}/update', [UserController::class, 'update'])->name('admin.users.update')->middleware('can:update-users');
         Route::delete('{user}/delete', [UserController::class, 'destroy'])->name('admin.users.delete')->middleware('can:delete-users');
     });
+
+    Route::prefix('borrows')->middleware('can:read-borrows')->group(function(){
+        Route::get('', [BorrowController::class, 'index'])->name('admin.borrows');
+        Route::get('getData', [BorrowController::class, 'getData'])->name('admin.borrows.getData');
+        Route::get('getDataBook', [BorrowController::class, 'getDataBook'])->name('admin.borrows.getDataBook');
+        Route::post('{book_id}/store', [BorrowController::class, 'store'])->name('admin.borrows.store');
+        Route::post('checkout', [BorrowController::class, 'checkout'])->name('admin.borrows.checkout');
+        Route::delete('{transactionDetail}/delete', [BorrowController::class, 'destroy'])->name('admin.borrows.delete');
+    });
+
+    Route::prefix('bookings')->middleware('can:read-bookings')->group(function(){
+        Route::get('', [BookingAdministratorController::class, 'index'])->name('admin.bookings');
+    });
 });
-
-

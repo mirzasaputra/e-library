@@ -35,6 +35,12 @@ class PermissionSeeder extends Seeder
 
             # users
             'read-users', 'create-users', 'update-users', 'delete-users',
+            
+            # borrows
+            'read-borrows',
+
+            # bookings
+            'read-bookings', 'update-bookings',
         ]);
         
         $this->insertPermission($permission);

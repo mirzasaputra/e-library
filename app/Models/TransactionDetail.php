@@ -18,4 +18,9 @@ class TransactionDetail extends Model
     {
         return $this->belongsTo(Book::class);
     }
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

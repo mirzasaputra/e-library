@@ -40,6 +40,8 @@ const handleView =async  () => {
     if(res.status == 200){
         $('v-renderer').html(await res.text())
         handleEvent()
+
+        $('.select2').select2()
     } else {
         if(res.status == 401){
             window.location.reload()
