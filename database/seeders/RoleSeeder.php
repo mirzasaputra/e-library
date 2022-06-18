@@ -30,6 +30,9 @@ class RoleSeeder extends Seeder
             'read-users', 'create-users', 'update-users', 'delete-users',
             'read-borrows',
             'read-bookings', 'update-bookings',
+            'read-book-returns', 'update-book-returns',
+            'read-settings', 'update-settings',
+            'read-reports',
         ]);
         
         $member = Role::create([
@@ -53,6 +56,9 @@ class RoleSeeder extends Seeder
             'read-users', 'create-users', 'update-users', 'delete-users',
             'read-borrows',
             'read-bookings', 'update-bookings',
+            'read-book-returns', 'update-book-returns',
+            'read-settings', 'update-settings',
+            'read-reports',
         ]);
     }
 }

@@ -174,96 +174,126 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            @can('read-dashboard')
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard') }}" data-toggle="ajax">
                     <i class="feather icon-home"></i> 
                     Dashboard
                 </a>
             </li>
+            @endcan
+            @canany(['read-genres', 'read-books', 'read-members', 'read-borrows', 'read-book-returns', 'read-reports'])
             <li class=" navigation-header">
                 <span>Apps</span>
             </li>
+            @canany(['read-genres', 'read-books', 'read-members'])
             <li class=" nav-item">
                 <a href="#">
                     <i class="feather icon-grid"></i>
                     <span class="menu-title">Master Data</span>
                 </a>
                 <ul class="menu-content">
+                    @can('read-genres')
                     <li>
                         <a href="{{ route('admin.genres') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Data Genre</span>
                         </a>
                     </li>
+                    @endcan
+                    @can('read-books')
                     <li>
                         <a href="{{ route('admin.books') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Data Buku</span>
                         </a>
                     </li>
+                    @endcan
+                    @can('read-members')
                     <li>
                         <a href="{{ route('admin.members') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Data Anggota</span>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </li>
+            @endcanany
+            @canany(['read-borrows', 'read-book-returns'])
             <li class=" nav-item">
                 <a href="#">
                     <i class="feather icon-repeat"></i>
                     <span class="menu-title">Transaksi</span>
                 </a>
                 <ul class="menu-content">
+                    @can('read-borrows')
                     <li>
                         <a href="{{ route('admin.borrows') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Peminjaman</span>
                         </a>
                     </li>
+                    @endcan
+                    @can('read-book-returns')
                     <li>
                         <a href="{{ route('admin.book-returns') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Pengembalian</span>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </li>
+            @endcanany
+            @can('read-reports')
             <li class="nav-item">
                 <a href="" data-toggle="ajax" class="nav-link">
                     <i class="feather icon-file"></i>
                     Laporan
                 </a>
             </li>
+            @endcan
+            @endcanany
+            @canany(['read-settings', 'read-users', 'read-roles'])
             <li class=" navigation-header">
                 <span>Pengaturan</span>
             </li>
+            @can('read-settings')
             <li class="nav-item">
                 <a href="" data-toggle="ajax" class="nav-link">
                     <i class="feather icon-settings"></i>
                     Setting
                 </a>
             </li>
+            @endcan
+            @canany(['read-users', 'read-roles'])
             <li class=" nav-item">
                 <a href="#">
                     <i class="feather icon-user"></i>
                     <span class="menu-title">Management Users</span>
                 </a>
                 <ul class="menu-content">
+                    @can('read-users')
                     <li>
                         <a href="{{ route('admin.users') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Users</span>
                         </a>
                     </li>
+                    @endcan
+                    @can('read-roles')
                     <li>
                         <a href="{{ route('admin.roles') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Roles</span>
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </li>
+            @endcanany
+            @endcanany
         </ul>
     </div>
 </div>

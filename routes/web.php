@@ -121,13 +121,13 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
         Route::get('', [BookingAdministratorController::class, 'index'])->name('admin.bookings');
         Route::get('{transaction}/show', [BookingAdministratorController::class, 'show'])->name('admin.bookings.show');
         Route::get('{transaction}/getDataDetail', [BookingAdministratorController::class, 'getDataDetail'])->name('admin.bookings.getDataDetail');
-        Route::get('{transaction}/confirm', [BookingAdministratorController::class, 'confirm'])->name('admin.bookings.confirm');
+        Route::get('{transaction}/confirm', [BookingAdministratorController::class, 'confirm'])->name('admin.bookings.confirm')->middleware('can:update-bookings');
     });
 
-    Route::prefix('book-returns')->middleware('can:read-books')->group(function(){
+    Route::prefix('book-returns')->middleware('can:read-book-returns')->group(function(){
         Route::get('', [BookReturnController::class, 'index'])->name('admin.book-returns');
         Route::get('{transaction}/show', [BookReturnController::class, 'show'])->name('admin.book-returns.show');
         Route::get('{transaction}/getDataDetail', [BookReturnController::class, 'getDataDetail'])->name('admin.book-returns.getDataDetail');
-        Route::get('{transactionDetail}/returned', [BookReturnController::class, 'returned'])->name('admin.book-returns.returned');
+        Route::get('{transactionDetail}/returned', [BookReturnController::class, 'returned'])->name('admin.book-returns.returned')->middleware('can:update-books-returned');
     });
 });

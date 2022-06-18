@@ -41,6 +41,15 @@ class PermissionSeeder extends Seeder
 
             # bookings
             'read-bookings', 'update-bookings',
+
+            # book-returns
+            'read-book-returns', 'update-book-returns',
+
+            # settings
+            'read-settings', 'update-settings',
+
+            # reports
+            'read-reports',
         ]);
         
         $this->insertPermission($permission);
