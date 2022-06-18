@@ -19,6 +19,10 @@ $(function(){
 })
 
 const handleView =async  () => {
+    if($('#reader__dashboard_section_csr span button').length > 0){
+        $('#reader__dashboard_section_csr span button').click()
+    }
+    
     sidebarIndicatorActive()
 
     swal.fire({

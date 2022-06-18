@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="ml-1">
-                    <button class="btn btn-dark" style="white-space: nowrap;">Scan QRCode</button>
+                    <button class="btn btn-dark" style="white-space: nowrap;" data-toggle="ajax" data-target="{{ route('admin.bookings.scan-qr-code') }}">Scan QRCode</button>
                 </div>
             </div>
         </div>

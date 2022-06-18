@@ -56,4 +56,26 @@ class BookingController extends Controller
         }
     }
 
+    public function viewQRCodeScanner()
+    {
+        $data = [
+            'title' => 'Scan QRCode',
+        ];
+
+        return customView('booking.qr-code-scanner', $data);
+    }
+
+    public function scanner($transaction_code)
+    {
+        $transaction = Transaction::where('transaction_code', $transaction_code);
+
+        if($transaction->count() > 0){
+            return response()->json($transaction->first());
+        } else {
+            return response()->json([
+                'message' => 'error'
+            ], 500);
+        }
+    }
+
 }

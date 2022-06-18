@@ -51,6 +51,7 @@
 <!-- END: Theme JS-->
 
 <!-- END: Page JS-->
+<script src="{{ asset('assets/js/html5-qrcode.min.js') }}"></script>
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
 @endsection
