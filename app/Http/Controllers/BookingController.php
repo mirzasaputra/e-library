@@ -17,7 +17,7 @@ class BookingController extends Controller
         $data = [
             'title' => 'Data Booking',
             'status' => $status,
-            'data' => $status == 'waiting' ? $transaction->get() : $transaction->first()
+            'data' => $status == 'waiting' || $status == 'not_be_restored' ? $transaction->get() : $transaction->first()
         ];
 
         return view('booking', $data);
@@ -65,9 +65,15 @@ class BookingController extends Controller
 
     public function checkoutShow()
     {
+        $transaction = Transaction::where(['member_id' => getInfoLogin()->member_id, 'status' => 'pending'])->first();
+
+        if(is_null($transaction) || !is_null($transaction) && $transaction->transactionDetail->count() <= 0){
+            return redirect()->route('booking')->withErrors(['message' => 'Silahkan tambahkan minimal 1 data buku']);
+        }
+
         $data = [
             'title' => 'Checkout',
-            'data' => Transaction::where(['member_id' => getInfoLogin()->member_id, 'status' => 'pending'])->first()
+            'data' => $transaction
         ];
 
         return view('checkout', $data);
@@ -89,7 +95,7 @@ class BookingController extends Controller
                 'status' => 'waiting'
             ]);
 
-            return redirect()->route('booking', 'waiting');
+            return redirect()->route('booking.filter', 'waiting');
         } catch(Exception $e){
             return redirect()->withErrors(['message' => $e->getMessage]);
         }

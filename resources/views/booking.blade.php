@@ -4,6 +4,11 @@
 
 <div class="container my-5">
     <h3 class="mb-5">Data Booking</h3>
+    @error('message')
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+    @enderror
     <div class="row">
         <div class="col-sm-6">
             @if($status == 'pending')
@@ -87,7 +92,7 @@
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="3" class="text-center">
+                        <td colspan="7" class="text-center">
                             <img src="{{ asset('storage/images/no-result-found.png') }}" alt="" width="40%">
                             <h5 class="text-center text-primary mb-4" style="margin-top: -40px;">No Result Found.</h5>
                         </td>
@@ -98,34 +103,27 @@
             @if($status == 'not_be_restored')
                 <tr>
                     <th width="1%" class="p-3">No.</th>
-                    <th class="p-3">Nama</th>
+                    <th class="p-3">Kode Transaksi</th>
+                    <th class="p-3">Tenggat Waktu</th>
+                    <th class="p-3">Jumlah Buku</th>
                     <th width="250" class="p-3"></th>
                 </tr>
-                @if(!is_null($data) && $data->transactionDetail->count() > 0)
-                    @foreach($data->transactionDetail as $item)
+                @if(!is_null($data) && $data->count() > 0)
+                    @foreach($data as $item)
                         <tr>
                             <td valign="middle" align="center">{{ $loop->iteration }}</td>
-                            <td>
-                                <div class="col-12">
-                                    <div class="d-flex align-items-center">
-                                        <div class="col-1">
-                                            <img src="{{ asset('storage/images/books/'. $item->book->picture) }}" alt="" width="100%">    
-                                        </div>
-                                        <div class="col-9 ms-3">
-                                            <strong>{{ $item->book->name }}</strong>
-                                            <p class="p-0 m-0 mt-2 text-muted small">{{ substr($item->book->description, 0, 200) }}...</p>
-                                        </div>
-                                    </div>    
-                                </div>    
-                            </td>
+                            <td>{{ $item->transaction_code }}</td>
+                            <td>{{ date('D, d M Y', strtotime($item->date_of_return)) }}</td>
+                            <td>{{ $item->transactionDetail->count() }}</td>
                             <td valign="middle" align="center">
-                                <a href="{{ route('booking.delete', $item->hashid) }}" class="btn btn-outline-danger btn-sm delete"><i class="fa fa-trash"></i> Delete</a>
+                                <a href="{{ route('booking.showQrCode', $item->hashid) }}" class="btn btn-warning btn-sm">Lihat Detail</a>
+                                <a href="{{ route('booking.showQrCode', $item->hashid) }}" class="btn btn-primary btn-sm">Show QRCode</a>
                             </td>
                         </tr>
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="3" class="text-center">
+                        <td colspan="5" class="text-center">
                             <img src="{{ asset('storage/images/no-result-found.png') }}" alt="" width="40%">
                             <h5 class="text-center text-primary mb-4" style="margin-top: -40px;">No Result Found.</h5>
                         </td>

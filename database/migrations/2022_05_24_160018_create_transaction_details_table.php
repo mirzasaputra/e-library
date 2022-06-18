@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('transaction_id');
             $table->foreignId('book_id');
+            $table->date('date_of_return')->nullable();
             $table->timestamps();
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade')->onUpdate('restrict');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade')->onUpdate('restrict');

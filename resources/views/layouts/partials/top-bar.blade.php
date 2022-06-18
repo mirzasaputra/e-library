@@ -222,12 +222,27 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" data-toggle="ajax">
+                        <a href="{{ route('admin.book-returns') }}" data-toggle="ajax">
                             <i class="feather icon-circle"></i>
                             <span class="menu-item">Pengembalian</span>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item">
+                <a href="" data-toggle="ajax" class="nav-link">
+                    <i class="feather icon-file"></i>
+                    Laporan
+                </a>
+            </li>
+            <li class=" navigation-header">
+                <span>Pengaturan</span>
+            </li>
+            <li class="nav-item">
+                <a href="" data-toggle="ajax" class="nav-link">
+                    <i class="feather icon-settings"></i>
+                    Setting
+                </a>
             </li>
             <li class=" nav-item">
                 <a href="#">

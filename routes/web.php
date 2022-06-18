@@ -17,6 +17,7 @@ use App\Http\Controllers\Role\RoleController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Borrow\BorrowController;
 use App\Http\Controllers\Booking\BookingController as BookingAdministratorController;
+use App\Http\Controllers\BookReturn\BookReturnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,5 +119,15 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
 
     Route::prefix('bookings')->middleware('can:read-bookings')->group(function(){
         Route::get('', [BookingAdministratorController::class, 'index'])->name('admin.bookings');
+        Route::get('{transaction}/show', [BookingAdministratorController::class, 'show'])->name('admin.bookings.show');
+        Route::get('{transaction}/getDataDetail', [BookingAdministratorController::class, 'getDataDetail'])->name('admin.bookings.getDataDetail');
+        Route::get('{transaction}/confirm', [BookingAdministratorController::class, 'confirm'])->name('admin.bookings.confirm');
+    });
+
+    Route::prefix('book-returns')->middleware('can:read-books')->group(function(){
+        Route::get('', [BookReturnController::class, 'index'])->name('admin.book-returns');
+        Route::get('{transaction}/show', [BookReturnController::class, 'show'])->name('admin.book-returns.show');
+        Route::get('{transaction}/getDataDetail', [BookReturnController::class, 'getDataDetail'])->name('admin.book-returns.getDataDetail');
+        Route::get('{transactionDetail}/returned', [BookReturnController::class, 'returned'])->name('admin.book-returns.returned');
     });
 });

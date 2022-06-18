@@ -20,6 +20,7 @@ class BorrowController extends Controller
             'title' => 'Peminjaman',
             'mods' => 'borrow',
             'members' => Member::all(),
+            'countBookWaiting' => Transaction::where('status', '=', 'waiting')->count(),
         ];
 
         return customView('borrow.index', $data);

@@ -18,7 +18,7 @@
                 <a class="nav-link active" href="{{ route('admin.borrows') }}" data-toggle="ajax">Transaksi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.bookings') }}" data-toggle="ajax">Booking <span class="badge badge-pill badge-primary">0</span></a>
+                <a class="nav-link" href="{{ route('admin.bookings') }}" data-toggle="ajax">Pengambilan <span class="badge badge-pill badge-primary">{{ $countBookWaiting }}</span></a>
             </li>
         </ul>
     </div>
