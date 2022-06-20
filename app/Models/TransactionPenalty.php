@@ -7,25 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Mtvs\EloquentHashids\HasHashid;
 use Mtvs\EloquentHashids\HashidRouting;
 
-class Transaction extends Model
+class TransactionPenalty extends Model
 {
     use HasFactory, HasHashid, HashidRouting;
 
     protected $guarded = [];
     protected $appends = ['hashid'];
 
-    public function transactionDetail()
+    public function transaction()
     {
-        return $this->hasMany(TransactionDetail::class);
-    }
-
-    public function member()
-    {
-        return $this->belongsTo(Member::class);
-    }
-
-    public function transactionPenalty()
-    {
-        return $this->hasOne(TransactionPenalty::class);
+        return $this->belongsTo(Transaction::class);
     }
 }

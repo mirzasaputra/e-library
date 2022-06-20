@@ -30,7 +30,7 @@
         <h4 class="text-center mb-5"><span style="border-bottom: 3px solid #68A7AD;padding: 3px">POPULAR BOOKS</span></h4>
         <div class="row my-5">
             @foreach($popularBooks as $item)
-            <div class="col-md-3 col-sm-6 col-6">
+            <div class="col-md-3 col-sm-6 col-12">
                 <a href="{{ route('detail', $item->hashid) }}" class="nav-link">
                     <div class="card books shadow-sm">
                         <div class="card-body text-dark" style="text-align: justify">
@@ -56,7 +56,7 @@
         <h4 class="text-center mb-5"><span style="border-bottom: 3px solid #68A7AD;padding: 3px">LATEST BOOKS</span></h4>
         <div class="row my-5">
             @foreach($latestBooks as $item)
-            <div class="col-md-3 col-sm-6 col-6">
+            <div class="col-md-3 col-sm-6 col-12">
                 <a href="{{ route('detail', $item->hashid) }}" class="nav-link">
                     <div class="card books shadow-sm">
                         <span class="latest-books">NEW</span>

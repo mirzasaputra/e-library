@@ -6,7 +6,7 @@
         <a href="{{ route('admin.dashboard') }}" data-toggle="ajax">Dashboard</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{ route('admin.bookings') }}" data-toggle="ajax">Pengembalian</a>
+        <a href="{{ route('admin.bookings') }}" data-toggle="ajax">Pengambilan</a>
     </li>
     <li class="breadcrumb-item active">Detail</li>
 </ol>

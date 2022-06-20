@@ -40,7 +40,7 @@
                             <td valign="middle" align="center">{{ $loop->iteration }}</td>
                             <td>
                                 <div class="col-12">
-                                    <div class="d-flex align-items-center">
+                                    <div class="d-flex align-items-center" style="min-width: 300px">
                                         <div class="col-1">
                                             <img src="{{ asset('storage/images/books/'. $item->book->picture) }}" alt="" width="100%">    
                                         </div>

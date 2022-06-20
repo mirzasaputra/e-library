@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="container my-5">
-    <div class="d-flex align-items-center justify-content-center mb-5">
+    <div class="row align-items-center justify-content-center mb-5">
         <div class="col-md-7">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.0557942098394!2d114.3016026143771!3d-8.29724669403051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1572a014c0f71%3A0xc4cff52255bb2ce4!2sKec.%20Rogojampi%2C%20Kabupaten%20Banyuwangi%2C%20Jawa%20Timur%2C%20Indonesia!5e0!3m2!1sid!2ssg!4v1653814824297!5m2!1sid!2ssg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="col-md-5 ms-4">
+        <div class="col-md-5 ms-4 ms-xs-0 mt-xs-3">
             <h4>Kontak Kami</h4>
             <hr>
             <p class="text-muted mt-4" style="text-align: justify">

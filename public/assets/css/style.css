@@ -60,3 +60,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.card .card-body-icon {
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

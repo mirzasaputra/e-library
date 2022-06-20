@@ -18,7 +18,7 @@
 </div>
 
 <script>
-    document.title = "{{ $title .' | Administrator E - Library Apps' }}";
+    document.title = "{{ $title .' | Administrator '. getSetting('app_name') }}";
     
     if(!window.jQuery){
         document.body.innerHTML = "";

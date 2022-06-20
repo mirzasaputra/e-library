@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Vinkla\Hashids\Facades\Hashids;
+use App\Models\Setting;
 use Carbon\Carbon;
 
 if (!function_exists('customView')) {
@@ -29,5 +30,20 @@ if (!function_exists('getAuthPermissions')) {
             return $perm->name;
         });
         return implode(',', $permissionsName->toArray());
+    }
+}
+
+if (!function_exists('stripCharacter')) {
+    function stripCharacter($input)
+    {
+        return preg_replace("/[^0-9]/", "", $input);
+    }
+}
+
+if(!function_exists('getSetting')) {
+    function getSetting($key)
+    {
+        $setting = Setting::where('key', $key)->first();
+        return is_null($setting) ? null : $setting->value;
     }
 }

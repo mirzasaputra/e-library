@@ -6,16 +6,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
+    <meta name="description" content="{{ getSetting('app_description') }}">
+    <meta name="keywords" content="{{ getSetting('app_keywords') }}">
+    <meta name="author" content="{{ getSetting('app_author') }}">
     <meta name="base-url" content="{{ url('/') }}">
     <meta name="asset-url" content="{{ asset('/') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="user-permissions" content="{{ getAuthPermissions() }}">
-    <title>{{ $title }} | Administrator E - Library App</title>
-    <link rel="apple-touch-icon" href="{{ asset('storage/images/favicon.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/favicon.png') }}">
+    <title>{{ $title }} | Administrator {{ getSetting('app_name') }}</title>
+    <link rel="apple-touch-icon" href="{{ asset('storage/images/'. getSetting('app_favicon')) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/'. getSetting('app_favicon')) }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/select/select2.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/dropify/css/dropify.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/datepicker/datepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/daterangepicker/daterangepicker.min.css') }}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->

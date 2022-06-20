@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="ml-1">
-                    <button class="btn btn-dark" style="white-space: nowrap;">Scan QRCode</button>
+                    <button class="btn btn-dark" style="white-space: nowrap;" data-toggle="ajax" data-target="{{ route('admin.book-returns.scan-qr-code') }}">Scan QRCode</button>
                 </div>
             </div>
         </div>
@@ -41,13 +41,20 @@
                     @foreach($data as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $item->transaction_code }}</td>
-                            <td>{{ date('d M Y', strtotime($item->date)) }}</td>
-                            <td>{{ date('d M Y', strtotime($item->date_of_return)) }}</td>
-                            <td>{{ $item->transactionDetail->count() }}</td>
-                            <td>Rp. 0</td>
+                            <td>{{ $item['transaction_code'] }}</td>
+                            <td>{{ date('d M Y', strtotime($item['date'])) }}</td>
                             <td>
-                                <a href="{{ route('admin.book-returns.show', $item->hashid) }}" data-toggle="ajax" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Lihat Detail</a>
+                                {{ date('d M Y', strtotime($item['date_of_return'])) }}
+                                @if($item['late'] > 0)
+                                    <p class="m-0 p-0">
+                                        <i class="text-danger small">Telat {{$item['late']}} hari.</i>
+                                    </p>
+                                @endif
+                            </td>
+                            <td>{{ $item['transactionDetail']->count() }}</td>
+                            <td>Rp. {{ number_format($item['late'] * getSetting('app_money_fine'), 0, ',', '.') }}</td>
+                            <td>
+                                <a href="{{ route('admin.book-returns.show', $item['hashid']) }}" data-toggle="ajax" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> Lihat Detail</a>
                             </td>
                         </tr>
                     @endforeach

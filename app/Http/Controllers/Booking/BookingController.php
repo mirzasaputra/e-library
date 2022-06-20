@@ -67,7 +67,7 @@ class BookingController extends Controller
 
     public function scanner($transaction_code)
     {
-        $transaction = Transaction::where('transaction_code', $transaction_code);
+        $transaction = Transaction::where(['transaction_code' => $transaction_code, 'status' => 'waiting']);
 
         if($transaction->count() > 0){
             return response()->json($transaction->first());

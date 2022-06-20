@@ -4,7 +4,7 @@
             <img src="{{ asset('storage/images/Logo.png') }}" alt="" height="50">
         </div>
         <div class="col-6 align-items-center d-flex">
-            <div class="col-md-6 ms-auto">
+            <div class="col-md-6 ms-auto d-none d-md-block">
                 <div class="input-group">
                     <input type="text" name="search" class="form-control form-search" placeholder="Search...">
                     <div class="input-group-append">
@@ -16,7 +16,7 @@
             <div class="ms-auto">
                 <a class="nav-link text-muted" href="#" data-bs-toggle="dropdown">
                     <div class="d-flex align-items-center justify-content-center">
-                        <div class="me-3">
+                        <div class="me-3 d-none d-md-block">
                             <strong class="p-0 m-0">{{ ucfirst(getInfoLogin()->name) }}</strong>
                             <p class="p-0 m-0 small text-muted">{{ getInfoLogin()->roles[0]->name }}</p>
                         </div>
@@ -38,7 +38,7 @@
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
     <div class="container">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupport"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupport"><span class="navbar-toggler-icon"></span></button>
         <div class="navbar-collapse collapse" id="navbarSupport">
             <ul class="navbar-nav">
                 <li class="nav-item">

@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="col-md-8 col-sm-10 col-11 mx-auto my-5">
-    <div class="d-flex align-items-center justify-content-center py-5">
+    <div class="row align-items-center justify-content-center py-5">
         <div class="col-md-4 col-sm-6 col-12">
             <div class="col-8 mx-auto">
                 <img src="{{ asset('storage/images/books/'. $data->picture) }}" alt="" width="100%">
             </div>
         </div>
-        <div class="col-md-8 col-sm-6 col-12">
-            <div class="col-8">
+        <div class="col-md-8 col-sm-6 col-12 mt-xs-3">
+            <div class="col-md-8 col-sm-10 col-12">
                 <span class="badge bg-primary small">{{ ucfirst($data->genre->name) }}</span>
                 <h3>{{ $data->name }}</h3>
                 <p class="text-muted mb-4">{{ $data->description }}</p>
@@ -24,7 +24,7 @@
                         <td>: {{$data->author}}</td>
                     </tr>
                 </table>
-                <a href="{{ route('booking.store', $data->hashid) }}" class="btn btn-primary px-5" style="border-radius: 25px;">Booking Now</a>
+                <a href="{{ route('booking.store', $data->hashid) }}" class="btn btn-primary px-5 d-xs-block" style="border-radius: 25px;">Booking Now</a>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
         <h4 class="text-center mb-5"><span style="border-bottom: 3px solid #68A7AD;padding: 3px">LATEST BOOKS</span></h4>
         <div class="row my-5">
             @foreach($latestBooks as $item)
-            <div class="col-md-3 col-sm-6 col-6">
+            <div class="col-md-3 col-sm-6 col-12">
                 <a href="{{ route('detail', $item->hashid) }}" class="nav-link">
                     <div class="card books shadow-sm">
                         <span class="latest-books">NEW</span>

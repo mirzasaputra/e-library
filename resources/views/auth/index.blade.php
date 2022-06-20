@@ -3,10 +3,10 @@
 @section('content')
     <img class="wave" src="{{ asset('storage/images/wave.png') }}" alt="">
     <div class="d-flex align-items-center justify-content-center" style="height: 100vh">
-        <div class="img" style="margin-right: 16rem">
+        <div class="img d-none d-md-block" style="margin-right: 16rem">
             <img src="{{ asset('storage/images/login.svg') }}" alt="">
         </div>
-        <div class="card ms-5 col-3">
+        <div class="card ms-5 col-md-3 col-sm-6 col-11">
             <div class="card-body">
                 <img class="avatar" src="{{ asset('storage/images/avatar.svg') }}" alt="">
                 <h2 class="card-title text-center"> Sign In</h2>

@@ -4,7 +4,7 @@
 
 <div class="container my-5">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-3 mb-5">
             <div class="card shadow-sm rounded">
                 <ul class="katalog">
                     <li class="item active">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="d-none" id="render"></div>
-                    <div class="col-6 mx-auto d-none" id="noResultFound">
+                    <div class="col-md-6 col-10 mx-auto d-none" id="noResultFound">
                         <img src="{{ asset('storage/images/no-result-found.png') }}" alt="" width="100%">
                         <h5 class="text-center text-primary" style="margin-top: -50px;">No Result Found.</h5>
                     </div>
@@ -74,7 +74,7 @@
 
             if(data.length > 0){
                 data.forEach((val) => {
-                    render += `<div class="col-md-4 col-sm-6 col-6">
+                    render += `<div class="col-md-4 col-sm-6 col-12">
                                 <a href="${$('meta[name="base-url"]').attr('content') }/${val.hashid}/detail" class="nav-link">
                                     <div class="card books shadow-sm">
                                         <span class="latest-books">NEW</span>

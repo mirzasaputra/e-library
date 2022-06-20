@@ -18,6 +18,8 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Borrow\BorrowController;
 use App\Http\Controllers\Booking\BookingController as BookingAdministratorController;
 use App\Http\Controllers\BookReturn\BookReturnController;
+use App\Http\Controllers\Setting\SettingController;
+use App\Http\Controllers\Report\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,5 +133,18 @@ Route::prefix('administrator')->middleware('auth')->group(function(){
         Route::get('{transaction}/show', [BookReturnController::class, 'show'])->name('admin.book-returns.show');
         Route::get('{transaction}/getDataDetail', [BookReturnController::class, 'getDataDetail'])->name('admin.book-returns.getDataDetail');
         Route::get('{transactionDetail}/returned', [BookReturnController::class, 'returned'])->name('admin.book-returns.returned')->middleware('can:update-book-returns');
+        Route::get('scan-qr-code', [BookReturnController::class, 'viewQRCodeScanner'])->name('admin.book-returns.scan-qr-code')->middleware('can:update-book-returns');
+        Route::get('{transaction_code}/scanner', [BookReturnController::class, 'scanner'])->name('admin.book-returns.scanner')->middleware('can:update-book-returns');
+    });
+
+    Route::prefix('settings')->middleware('can:read-settings')->group(function(){
+        Route::get('', [SettingController::class, 'index'])->name('admin.settings');
+        Route::get('getData', [SettingController::class, 'getData'])->name('admin.settings.getData');
+        Route::post('{setting}/update', [SettingController::class, 'update'])->name('admin.settings.update')->middleware('can:update-settings');
+    });
+
+    Route::prefix('reports')->middleware('can:read-reports')->group(function(){
+        Route::get('', [ReportController::class, 'index'])->name('admin.reports');
+        Route::get('preview-pdf', [ReportController::class, 'preview'])->name('admin.reports.preview');
     });
 });

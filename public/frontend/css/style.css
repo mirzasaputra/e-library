@@ -210,3 +210,25 @@ body {
 footer {
     margin-top: auto;
 }
+
+@media(max-width: 768px){
+    #banner .carousel, #banner .carousel img {
+        height: 220px;
+    }
+
+    .mt-xs-3 {
+        margin-top: 1.5rem;
+    }
+
+    .d-xs-block {
+        display: block;
+    }
+
+    .ms-xs-0 {
+        margin-left: 0!important;
+    }
+
+    .mt-xs-5 {
+        margin-top: 5rem;
+    }
+}

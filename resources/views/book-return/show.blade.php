@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th>Jumlah Denda</th>
-                        <td>: Rp. 0</td>
+                        <td>: Rp. {{ number_format($late * getSetting('app_money_fine'), 0, ',', '.') }} @if($late > 0)- <i class="text-danger small">Telat {{$late}} hari.</i>@endif</td>
                     </tr>
                 </table>
             </div>

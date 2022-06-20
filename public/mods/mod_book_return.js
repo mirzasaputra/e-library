@@ -20,7 +20,7 @@ table = initTable('#dataTable',
                 <div class="d-flex align-items-center" style="width: 300px;">
                     <img src="${$('meta[name="asset-url"]').attr('content')}storage/images/books/${data.picture}" width="70" alt="${data.name}">
                     <div class="ml-1">
-                        <i class="badge badge-primary">${data.genre}</i>
+                        <i class="badge badge-primary">${row.genre}</i>
                         <h5 class="font-weight-bold">${data.name}</h5>
                         <p class="m-0 p-0 small text-muted">Penulis : ${data.author}</p>
                         <p class="m-0 p-0 small text-muted">Tahun Terbit : ${data.publication_year}</p>
