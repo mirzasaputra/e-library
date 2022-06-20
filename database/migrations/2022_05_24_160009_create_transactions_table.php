@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('transaction_code')->nullable();
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('member_id');
+            $table->foreignId('member_id')->nullable();
             $table->date('date')->nullable();
             $table->date('date_of_return')->nullable();
             $table->enum('status', ['pending', 'waiting', 'not_be_restored', 'returned']);
