@@ -19,7 +19,7 @@
         <h4 class="font-weight-700">Information</h4>
         <hr>
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-6 col-12">
                 <table cellpadding="8">
                     <tr>
                         <th>Kode Transaksi</th>
@@ -35,7 +35,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-12">
                 <table cellpadding="8">
                     <tr>
                         <th>Status</th>

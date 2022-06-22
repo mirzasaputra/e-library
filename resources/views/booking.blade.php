@@ -116,7 +116,7 @@
                             <td>{{ date('D, d M Y', strtotime($item->date_of_return)) }}</td>
                             <td>{{ $item->transactionDetail->count() }}</td>
                             <td valign="middle" align="center">
-                                <a href="{{ route('booking.showQrCode', $item->hashid) }}" class="btn btn-warning btn-sm">Lihat Detail</a>
+                                {{-- <a href="{{ route('booking.showQrCode', $item->hashid) }}" class="btn btn-warning btn-sm">Lihat Detail</a> --}}
                                 <a href="{{ route('booking.showQrCode', $item->hashid) }}" class="btn btn-primary btn-sm">Show QRCode</a>
                             </td>
                         </tr>
