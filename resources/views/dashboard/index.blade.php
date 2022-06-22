@@ -57,17 +57,4 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6 col-sm-6 col-12">
-        <div class="card">
-            <div class="card-body"></div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-12">
-        <div class="card">
-            <div class="card-body"></div>
-        </div>
-    </div>
-</div>
-
 @endsection
