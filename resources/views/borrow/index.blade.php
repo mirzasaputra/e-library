@@ -40,7 +40,7 @@
                             <option value="{{ $item->hashid }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
-                    <a href="" class="nav-link small">Tambah Anggota</a>
+                    <a href="{{ route('admin.members.create') }}" data-toggle="ajax" class="nav-link small">Tambah Anggota</a>
                 </div>
             </div>
         </div>
