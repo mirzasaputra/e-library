@@ -40,13 +40,13 @@ return [
         'main' => [
             'salt' => 'e-library-v1',
             'length' => 40,
-            'alphabet' => 'abcdefghi1234567890'
+            'alphabet' => 'abcdefghi1234567890-'
         ],
 
         'alternative' => [
             'salt' => 'e-library-v1',
             'length' => 40,
-            'alphabet' => 'abcdefghi1234567890'
+            'alphabet' => 'abcdefghi1234567890-'
         ],
 
     ],

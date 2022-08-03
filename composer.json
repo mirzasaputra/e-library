@@ -9,6 +9,7 @@
         "barryvdh/laravel-dompdf": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.11",
+        "laravel/passport": "^10.4",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "mtvs/eloquent-hashids": "^3.2",
