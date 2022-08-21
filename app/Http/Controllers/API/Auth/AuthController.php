@@ -26,14 +26,11 @@ class AuthController extends Controller
                 $token->save();
 
                 return response()->json([
-                    'data' => [
-                        'token' => $tokenResult->accessToken,
-                        'id' => $user->hashid,
-                        'name' => $user->name,
-                        'username' => $user->username,
-                        'email' => $user->email
-                    ],
-                    'message' => 'Berhasil Login'
+                    'token' => $tokenResult->accessToken,
+                    'id' => $user->hashid,
+                    'name' => $user->name,
+                    'username' => $user->username,
+                    'email' => $user->email
                 ]);
             } else {
                 return response()->json([
